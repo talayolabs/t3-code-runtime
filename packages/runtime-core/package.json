@@ -21,6 +21,6 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@t3-code/runtime-protocol": "workspace:*"
+    "@t3-code/runtime-protocol": "0.1.0"
   }
 }

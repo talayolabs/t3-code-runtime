@@ -24,7 +24,7 @@
     "t3-runtime": "./bin/runtime.js"
   },
   "dependencies": {
-    "@t3-code/runtime-protocol": "workspace:*",
-    "@t3-code/runtime-core": "workspace:*"
+    "@t3-code/runtime-protocol": "0.1.0",
+    "@t3-code/runtime-core": "0.1.0"
   }
 }

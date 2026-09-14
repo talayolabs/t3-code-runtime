@@ -188,7 +188,7 @@ const hits = await runtime.search(ws.id, { pattern: 'TODO', path: 'src' });
 const status = await runtime.git(ws.id, ['status', '--porcelain']);
 
 // Commands and terminals
-const result = await runtime.exec(ws.id, 'pnpm', ['test'], { cwd: '.', timeoutMs: 600_000 });
+const result = await runtime.exec(ws.id, 'npm', ['test'], { cwd: '.', timeoutMs: 600_000 });
 const pty = await runtime.spawnPty(ws.id, { cols: 120, rows: 40 });
 pty.onData((chunk) => process.stdout.write(chunk));
 pty.write('ls -la\n');
@@ -229,7 +229,7 @@ The CLI is a debugging and integration-test surface; the programmatic API is the
 integration point.
 
 ```bash
-pnpm build
+npm run build
 alias t3-runtime="node $(pwd)/packages/runtime-docker/bin/runtime.js"
 
 t3-runtime create demo --source ~/src/my-app            # git bundle import
@@ -260,7 +260,7 @@ machine-readable output.
 
 ## Prerequisites
 
-- Node.js ≥ 22 and pnpm.
+- Node.js ≥ 22 and npm (workspaces; install from the committed `package-lock.json`).
 - Docker Engine reachable via the `docker` CLI and via the Engine API socket (default
   `unix:///var/run/docker.sock`, or `DOCKER_HOST` as `unix://…` / `tcp://…`). PTYs use the
   Engine API because interactive `docker exec` needs a hijacked stream.
@@ -271,13 +271,13 @@ machine-readable output.
 ## Development
 
 ```bash
-pnpm install
-pnpm typecheck          # tsc over all packages and tests
-pnpm lint               # eslint (strict, type-checked)
-pnpm test               # unit tests (no Docker required)
-pnpm test:integration   # Docker integration suite; skips with a message if Docker is unreachable
-pnpm test:all
-pnpm build              # emits packages/*/dist
+npm install
+npm run typecheck          # tsc over all packages and tests
+npm run lint               # eslint (strict, type-checked)
+npm test                   # unit tests (no Docker required)
+npm run test:integration   # Docker integration suite; skips with a message if Docker is unreachable
+npm run test:all
+npm run build              # emits packages/*/dist
 ```
 
 The integration suite creates containers named `t3it<pid>-*` with the runtime label, uses a
