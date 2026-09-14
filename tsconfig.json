@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "packages/runtime-protocol" },
+    { "path": "packages/runtime-core" },
+    { "path": "packages/runtime-docker" }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@t3-code/runtime-protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Runtime-agnostic workspace runtime contract: interfaces, types and error classes shared by T3 Code and runtime implementations",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

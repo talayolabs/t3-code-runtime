@@ -1,0 +1,26 @@
+{
+  "name": "@t3-code/runtime-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Runtime-agnostic building blocks: workspace identity, path validation, metadata store, lifecycle state machine and the one-agent-per-workspace lock",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@t3-code/runtime-protocol": "workspace:*"
+  }
+}

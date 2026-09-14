@@ -1,0 +1,30 @@
+{
+  "name": "@t3-code/runtime-docker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Docker implementation of the T3 Code WorkspaceRuntime: one retained container per workspace, no host mounts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "bin": {
+    "t3-runtime": "./bin/runtime.js"
+  },
+  "dependencies": {
+    "@t3-code/runtime-protocol": "workspace:*",
+    "@t3-code/runtime-core": "workspace:*"
+  }
+}

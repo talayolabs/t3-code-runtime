@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "baseUrl": ".",
+    "paths": {
+      "@t3-code/runtime-protocol": ["packages/runtime-protocol/src/index.ts"],
+      "@t3-code/runtime-core": ["packages/runtime-core/src/index.ts"],
+      "@t3-code/runtime-docker": ["packages/runtime-docker/src/index.ts"]
+    }
+  },
+  "include": [
+    "packages/*/src/**/*.ts",
+    "test/**/*.ts",
+    "vitest.config.ts",
+    "vitest.integration.config.ts",
+    "vitest.shared.ts"
+  ]
+}

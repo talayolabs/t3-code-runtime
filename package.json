@@ -1,0 +1,28 @@
+{
+  "name": "t3-code-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Runtime layer that lets T3 Code treat a retained Docker container as the workspace",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.typecheck.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run --config vitest.config.ts",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:all": "pnpm test && pnpm test:integration",
+    "runtime": "pnpm build && node packages/runtime-docker/bin/runtime.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.2",
+    "eslint": "^10.9.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "~8.69.0",
+    "vitest": "^4.1.11"
+  }
+}
